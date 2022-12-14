@@ -51,6 +51,13 @@ ul {
   list-style: none;
   padding-left: 0;
 }
+
+button {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
 /* Typography */
 
 h1 {
@@ -110,4 +117,32 @@ p {
 }
 .navbar__menu__item:hover {
   background-color: #338eca;
+}
+
+/* Home */
+#home {
+  padding: 40px;
+  background: url(./imgs/background.avif) center/cover no-repeat;
+  text-align: center;
+  color: white;
+}
+.home__avatar {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 2px solid var(--color-light-white);
+}
+.home__title,
+.home__desc,
+.home__contact {
+  margin: 25px 0;
+  color: white;
+}
+
+.home__contact {
+  border-radius: var(--size-border-radius);
+  border: solid 2px white;
+  font-size: var(--font-regular);
+  width: 120px;
+  height: 25px;
 }
