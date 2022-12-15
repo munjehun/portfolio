@@ -96,6 +96,8 @@ p {
   background-color: #73aace;
   align-items: center;
   padding: 2px 10px;
+  /* position: sticky;
+  top: 0; */
 }
 
 .navbar__logo {
@@ -125,6 +127,7 @@ p {
   background: url(./imgs/background.avif) center/cover no-repeat;
   text-align: center;
   color: white;
+  /* margin: 0; */
 }
 .home__avatar {
   width: 200px;
@@ -145,4 +148,76 @@ p {
   font-size: var(--font-regular);
   width: 120px;
   height: 25px;
+}
+
+/* Section common 중앙정렬 */
+.section {
+  text-align: center;
+  padding: 50px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* About */
+.about__majors {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 40px 0;
+}
+.major__icon {
+  width: 100px;
+  height: 100px;
+  border: solid 2px var(--color-blue);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  /* i태그는 font이다. */
+  color: var(--color-blue);
+  margin-bottom: 10px;
+  transition: all 0.5s;
+}
+/* major__icon에 hover했을때 i태그만 변화시키고 싶다면
+.major__icon:hover i 라고 hover다음에 변화시키려는 태그를 쓰면 된다!
+*/
+.major__icon:hover {
+  color: #215c83;
+  scale: 1.1;
+  transform: rotate(360deg);
+  border: #215c83 solid 2px;
+}
+.major {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0 40px;
+}
+
+.major__title,
+.major__desc {
+  color: var(--color-grey);
+}
+
+.major__desc {
+  font-size: var(--font-small);
+}
+
+.education {
+  display: flex;
+  align-items: center;
+}
+.education img {
+  width: 80px;
+  height: 80px;
+}
+.education__desc {
+  margin: 0 10px;
+  text-align: left;
+}
+.education__name {
+  font-size: var(--font-small);
+}
+.education__period {
+  font-size: var(--font-micro);
 }

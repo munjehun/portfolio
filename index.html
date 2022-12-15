@@ -27,7 +27,7 @@
       <div class="navbar__logo">
         <!-- 아이콘 = i 태그 -->
         <i class="fab fa-diaspora"></i>
-        <a href="#" >Jehun</a>
+        <a href="#">Jehun</a>
       </div>
       <ul class="navbar__menu">
         <li class="navbar__menu__item active">Home</li>
@@ -50,13 +50,14 @@
         이상을 꿈꾸는 개발자입니다.
       </h1>
       <h2 class="home__desc">
-        블록체인에 관심과<br /> 프론트엔드에 흥미로<br /> 세상을 변화시키고
-        싶습니다.
+        블록체인에 관심과<br />
+        프론트엔드에 흥미로<br />
+        세상을 변화시키고 싶습니다.
       </h2>
       <button type="button" class="home__contact">Contact Me</button>
     </section>
     <!-- About -->
-    <section id="about">
+    <section id="about" class="section">
       <!-- h1태그 자체로 공통으로 스타일링 할거라서 class를 넣지 않았다. -->
       <h1>About Me</h1>
       <h3>
@@ -67,53 +68,68 @@
       </h3>
       <div class="about__majors">
         <div class="major">
-          <i class="fa-brands fa-square-js"></i>
-          <div class="major__title">JavaScript</div>
+          <div class="major__icon">
+            <i class="fa-brands fa-square-js"></i>
+          </div>
+          <h2 class="major__title">JavaScript</h2>
           <div class="major__desc">자스 알고리즘, 이론</div>
         </div>
         <div class="major">
-          <i class="fa-brands fa-react"></i>
-          <div class="major__title">React</div>
+          <div class="major__icon">
+            <i class="fa-brands fa-react"></i>
+          </div>
+          <h2 class="major__title">React</h2>
           <div class="major__desc">리액트로 프론트엔드</div>
         </div>
         <div class="major">
-          <i class="fa-solid fa-n"></i>
-          <div class="major__title">NextJS</div>
+          <div class="major__icon">
+            <i class="fa-solid fa-n"></i>
+          </div>
+          <h2 class="major__title">NextJS</h2>
           <div class="major__desc">NextJS로 프론트엔드</div>
         </div>
-        <div class="about__education">
-          <div class="education">
-            <img
-              src="./imgs/educations/codestates logo.png"
-              alt="codestates logo"
-              class="education__logo"
-            />
-            <p class="education__name">교육명</p>
+      </div>
+      <div class="about__education">
+        <div class="education">
+          <img
+            src="./imgs/educations/codestates logo.png"
+            alt="codestates logo"
+            class="education__logo"
+          />
+          <div class="education__desc">
+            <p class="education__name">코드 스테이츠 블록체인 부트캠프</p>
+            <p class="education__period">22/02/28 ~ 22/08/05</p>
+          </div>
+        </div>
+        <div class="education">
+          <img
+            src="./imgs/educations/codestates logo.png"
+            alt="codestates logo"
+            class="education__logo"
+          />
+          <div class="education__desc">
+            <p class="education__name">한국인터넷진흥위원회 핀테크 아카데미</p>
             <p class="education__period">교육 기간</p>
           </div>
-          <div class="education">
-            <img
-              src="./imgs/educations/codestates logo.png"
-              alt="codestates logo"
-              class="education__logo"
-            />
-            <p class="education__name">교육명</p>
-            <p class="education__period">교육 기간</p>
-          </div>
-          <div class="education">
-            <img
-              src="./imgs/educations/codestates logo.png"
-              alt="codestates logo"
-              class="education__logo"
-            />
-            <p class="education__name">교육명</p>
+        </div>
+
+        <div class="education">
+          <img
+            src="./imgs/educations/codestates logo.png"
+            alt="codestates logo"
+            class="education__logo"
+          />
+          <div class="education__desc">
+            <p class="education__name">
+              서울ICT이노베이션스퀘어 블록체인 중급자 개발 과정
+            </p>
             <p class="education__period">교육 기간</p>
           </div>
         </div>
       </div>
     </section>
     <!-- Skills -->
-    <section id="skills">
+    <section id="skills" class="section">
       <h1>Skills</h1>
       <h2>Skills & Attributes</h2>
       <p>
@@ -133,6 +149,7 @@
             <div class="skill__bar">
               <div class="skill__value"></div>
             </div>
+          </div>
           <div class="skill">
             <div class="skill__desc">
               <span>HTML</span>
@@ -165,61 +182,94 @@
       </div>
     </section>
     <!-- Works -->
-    <section id="work">
+    <section id="work" class="section">
       <h1>My work</h1>
       <h3>Projects</h3>
       <div class="work__categories">
-        <button class="category__btn">Navelog <span class="category__count">3</span></button>
-        <button class="category__btn">Block In Art <span class="category__count">3</span></button>
-        <button class="category__btn">Close sea <span class="category__count">3</span></button>
+        <button class="category__btn">
+          Navelog <span class="category__count">3</span>
+        </button>
+        <button class="category__btn">
+          Block In Art <span class="category__count">3</span>
+        </button>
+        <button class="category__btn">
+          Close sea <span class="category__count">3</span>
+        </button>
       </div>
 
       <!-- 클릭하면 깃허브로 가거나 기술 상세 설명 -->
       <div class="work__projects">
-        <a href="https://github.com/munjehun/navelog" class="project" target="blank">프로젝트 이미지 넣기
-          <img src="#" alt="#" class="project__img">
+        <a
+          href="https://github.com/munjehun/navelog"
+          class="project"
+          target="blank"
+          >프로젝트 이미지 넣기
+          <img src="#" alt="#" class="project__img" />
           <div class="project__desc">
             <h3>Navelog Github Site</h3>
           </div>
         </a>
-        <a href="https://github.com/munjehun/navelog" class="project" target="blank">프로젝트 이미지 넣기
-          <img src="#" alt="#" class="project__img">
+        <a
+          href="https://github.com/munjehun/navelog"
+          class="project"
+          target="blank"
+          >프로젝트 이미지 넣기
+          <img src="#" alt="#" class="project__img" />
           <div class="project__desc">
             <h3>Navelog Github Site</h3>
           </div>
         </a>
-        <a href="https://github.com/munjehun/navelog" class="project" target="blank">프로젝트 이미지 넣기
-          <img src="#" alt="#" class="project__img">
+        <a
+          href="https://github.com/munjehun/navelog"
+          class="project"
+          target="blank"
+          >프로젝트 이미지 넣기
+          <img src="#" alt="#" class="project__img" />
           <div class="project__desc">
             <h3>Navelog Github Site</h3>
           </div>
         </a>
-       
       </div>
-
     </section>
     <!-- Testimonials -->
-    <section id="testimonials">
+    <section id="testimonials" class="section">
       <h1>Testimonials</h1>
       <h3>그들은 나에게 뭐라고 했을까</h3>
       <div class="testimonial">
-        <img src="./imgs/testimonial/people1_12942eb352.jpg" alt="#" class="testimonial__avatar"/>
+        <img
+          src="./imgs/testimonial/people1_12942eb352.jpg"
+          alt="#"
+          class="testimonial__avatar"
+        />
         <div class="testimonial__speech-bubble">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolores cumque, ex impedit nam debitis, eveniet delectus culpa assumenda alias obcaecati sit quos ea provident recusandae autem at aliquam? Sit!</p>
-          <p class="name"><a href="#">김아무개</a> / 삼성 </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            dolores cumque, ex impedit nam debitis, eveniet delectus culpa
+            assumenda alias obcaecati sit quos ea provident recusandae autem at
+            aliquam? Sit!
+          </p>
+          <p class="name"><a href="#">김아무개</a> / 삼성</p>
         </div>
       </div>
       <div class="testimonial">
-        <img src="./imgs/testimonial/people1_12942eb352.jpg" alt="#" class="testimonial__avatar"/>
+        <img
+          src="./imgs/testimonial/people1_12942eb352.jpg"
+          alt="#"
+          class="testimonial__avatar"
+        />
         <div class="testimonial__speech-bubble">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere dolores cumque, ex impedit nam debitis, eveniet delectus culpa assumenda alias obcaecati sit quos ea provident recusandae autem at aliquam? Sit!</p>
-          <p class="name"><a href="#">김아무개</a> / 삼성 </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            dolores cumque, ex impedit nam debitis, eveniet delectus culpa
+            assumenda alias obcaecati sit quos ea provident recusandae autem at
+            aliquam? Sit!
+          </p>
+          <p class="name"><a href="#">김아무개</a> / 삼성</p>
         </div>
       </div>
-
     </section>
     <!-- Contact -->
-    <section id="contact">
+    <section id="contact" class="section">
       <h1 class="contact__title">Let's talk</h1>
       <h2 class="contact__email">miso1489@gmail.com</h2>
       <div class="contact__links">
