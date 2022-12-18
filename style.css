@@ -163,6 +163,7 @@ p {
 }
 .section__container {
   max-width: 1200px;
+  margin: auto;
 }
 
 /* About */
@@ -367,10 +368,7 @@ p {
 #testimonials {
   background-color: var(--color-light-white);
 }
-.testimonials {
-  margin: 20px auto;
-  max-width: 1200px;
-}
+
 .testimonial {
   display: flex;
   margin: 10px 0;
