@@ -399,3 +399,28 @@ p {
 .testimonial__speech-bubble a {
   color: cornflowerblue;
 }
+
+/* Contact */
+#contact {
+  background-color: var(--color-blue);
+}
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: white;
+}
+.contact__title {
+  margin: 32px 0;
+}
+/* i 태그는 font와 동일하게 font로 처리! */
+.contact__links {
+  font-size: var(--font-large);
+  margin: 20px 0;
+}
+.contact__links i {
+  transition: all 0.125s ease-in;
+}
+.contact__links i:hover {
+  transform: scale(1.1);
+  color: var(--color-pink);
+}
