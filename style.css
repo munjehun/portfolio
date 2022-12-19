@@ -103,9 +103,11 @@ p {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  margin: 10px 0;
 }
 .navbar__menu {
   display: flex;
+  margin: 0;
 }
 .navbar__menu__item {
   padding: 6px 10px;
@@ -120,7 +122,15 @@ p {
 .navbar__menu__item:hover {
   background-color: #338eca;
 }
-
+.navbar__toggle_btn {
+  /* display: none; */
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: var(--font-medium);
+  display: none;
+}
 /* Home */
 #home {
   padding: 40px;
@@ -333,8 +343,7 @@ p {
 .project {
   width: 250px;
   height: 200px;
-  background-color: #338eca;
-  border: 2px solid salmon;
+  background-color: var(--color-light-white);
   margin: 5px;
   position: relative;
 }
@@ -371,7 +380,7 @@ p {
 
 .testimonial {
   display: flex;
-  margin: 10px 0;
+  margin: 20px 0;
   align-items: center;
 }
 
@@ -421,4 +430,41 @@ p {
 .contact__links i:hover {
   transform: scale(1.1);
   color: var(--color-pink);
+}
+
+/* 768px 미만 */
+@media screen and (max-width: 768px) {
+  .navbar__toggle_btn {
+    display: block;
+  }
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    display: none;
+  }
+  .navbar__menu__item {
+    margin: 5px 0;
+  }
+
+  .about__majors {
+    flex-direction: column;
+  }
+
+  .skillset {
+    flex-direction: column;
+  }
+
+  .project {
+    flex-grow: 1;
+  }
+
+  .testimonial__avatar {
+    width: 100px;
+    height: 100px;
+  }
 }
