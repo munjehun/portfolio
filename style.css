@@ -91,13 +91,19 @@ p {
 /* Navbar */
 #navbar {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   color: var(--color-white);
-  background-color: #73aace;
   align-items: center;
-  padding: 2px 10px;
-  /* position: sticky;
-  top: 0; */
+  padding: 5px 15px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  transition: 0.2s all ease-in-out;
+}
+#navbar.navbar--dark {
+  background-color: #73aace;
+  padding: 0 10px;
 }
 
 .navbar__logo {
@@ -133,7 +139,7 @@ p {
 }
 /* Home */
 #home {
-  padding: 40px;
+  padding: 80px 40px 40px;
   background: url(./imgs/background.avif) center/cover no-repeat;
   text-align: center;
   color: white;
