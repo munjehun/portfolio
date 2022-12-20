@@ -11,3 +11,17 @@ document.addEventListener("scroll", () => {
     navbar.classList.remove("navbar--dark");
   }
 });
+
+// 네비바 메뉴 선택시 이동
+const navbarMenu = document.querySelector(".navbar__menu");
+navbarMenu.addEventListener("click", (event) => {
+  const link = event.target.dataset.link;
+  if (link) {
+    console.log(link);
+    const scrollTo = document.querySelector(link);
+    scrollTo.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  }
+});
