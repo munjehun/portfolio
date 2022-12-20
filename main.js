@@ -12,6 +12,10 @@ document.addEventListener("scroll", () => {
   }
 });
 
+function scrollIntoView(selector) {
+  const contact = document.querySelector(selector);
+  contact.scrollIntoView({ behavior: "smooth" });
+}
 // 네비바 메뉴 선택시 이동
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
@@ -27,7 +31,9 @@ contactBtn.addEventListener("click", () => {
   scrollIntoView("#contact");
 });
 
-function scrollIntoView(selector) {
-  const contact = document.querySelector(selector);
-  contact.scrollIntoView({ behavior: "smooth" });
-}
+// 스크롤시 Home화면 투명해지게
+const home = document.querySelector(".home__container");
+const homeHeight = home.getBoundingClientRect().height;
+document.addEventListener("scroll", () => {
+  home.style.opacity = 1 - window.scrollY / homeHeight;
+});
