@@ -17,11 +17,17 @@ const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
   const link = event.target.dataset.link;
   if (link) {
-    console.log(link);
-    const scrollTo = document.querySelector(link);
-    scrollTo.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    scrollIntoView(link);
   }
 });
+
+// Home의 Contact Me 버튼 시 Contact로 이동
+const contactBtn = document.querySelector(".home__contact");
+contactBtn.addEventListener("click", () => {
+  scrollIntoView("#contact");
+});
+
+function scrollIntoView(selector) {
+  const contact = document.querySelector(selector);
+  contact.scrollIntoView({ behavior: "smooth" });
+}
