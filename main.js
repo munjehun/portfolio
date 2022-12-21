@@ -37,3 +37,16 @@ const homeHeight = home.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
   home.style.opacity = 1 - window.scrollY / homeHeight;
 });
+
+// 스크롤시 맨 위로 올라가는 버튼 만들기
+const toTopArrow = document.querySelector(".toTopArrow");
+document.addEventListener("scroll", () => {
+  if (window.scrollY > homeHeight / 2) {
+    toTopArrow.classList.add("visible");
+  } else {
+    toTopArrow.classList.remove("visible");
+  }
+});
+toTopArrow.addEventListener("click", () => {
+  scrollIntoView("#home");
+});

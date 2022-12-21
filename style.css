@@ -440,6 +440,35 @@ p {
   color: var(--color-pink);
 }
 
+/* toTopArrow */
+.toTopArrow {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  width: 50px;
+  height: 50px;
+  border: var(--color-blue) solid 2px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  font-size: 30px;
+  color: var(--color-blue);
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  opacity: 0;
+  /* 클릭방지 모드 */
+  pointer-events: none;
+}
+.toTopArrow.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.toTopArrow:hover {
+  background-color: var(--color-blue);
+  color: white;
+}
+
 /* 768px 미만 */
 @media screen and (max-width: 768px) {
   .navbar__toggle_btn {
