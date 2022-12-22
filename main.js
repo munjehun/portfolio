@@ -53,6 +53,7 @@ toTopArrow.addEventListener("click", () => {
 
 // 프로젝트 버튼 클릭시 해당 프로젝트만 나오도록
 const workBtnContainer = document.querySelector(".work__categories");
+const workBtns = document.querySelectorAll(".category__btn");
 const projectContainer = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project");
 // class로  project를 가지는 모든 요소들을 배열화
@@ -61,6 +62,12 @@ workBtnContainer.addEventListener("click", (e) => {
   if (filter === undefined) {
     return;
   }
+
+  const active = document.querySelector(".category__btn.active");
+  active.classList.remove("active");
+  const target = e.target.nodeName == "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("active");
+
   projectContainer.classList.add("anime-out");
   setTimeout(() => {
     projects.forEach((project) => {
@@ -71,5 +78,7 @@ workBtnContainer.addEventListener("click", (e) => {
       }
     });
     projectContainer.classList.remove("anime-out");
-  }, 300);
+  }, 200);
 });
+
+// 프로젝트 버튼 클릭시 active 클래스 추가 제거

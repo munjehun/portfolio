@@ -123,9 +123,6 @@ p {
   border-radius: var(--size-border-radius);
   transition: all 0.5s;
 }
-.navbar__menu__item.active {
-  border: solid 1px white;
-}
 .navbar__menu__item:hover {
   background-color: #338eca;
 }
