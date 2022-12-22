@@ -333,7 +333,7 @@ p {
   top: -10px;
   left: 4px;
   opacity: 0;
-  transition: all 0.5s ease-out;
+  transition: all 0.2s ease-out;
 }
 /* category__btn이 active이거나 hover일때 category__count변화주기 */
 .category__btn.active .category__count,
@@ -346,7 +346,12 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  /* background-color: #215c83; */
+  opacity: 1;
+  transition: 0.2s all ease-out;
+}
+.work__projects.anime-out {
+  opacity: 0;
+  transform: scale(0.5) translateY(40px);
 }
 .project {
   width: 250px;
@@ -360,6 +365,9 @@ p {
   opacity: 0.8;
   color: white;
   top: 0;
+}
+.project.invisible {
+  display: none;
 }
 .project__img {
   max-width: 100%;

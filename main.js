@@ -50,3 +50,26 @@ document.addEventListener("scroll", () => {
 toTopArrow.addEventListener("click", () => {
   scrollIntoView("#home");
 });
+
+// 프로젝트 버튼 클릭시 해당 프로젝트만 나오도록
+const workBtnContainer = document.querySelector(".work__categories");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+// class로  project를 가지는 모든 요소들을 배열화
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.work || e.target.parentNode.dataset.work;
+  if (filter === undefined) {
+    return;
+  }
+  projectContainer.classList.add("anime-out");
+  setTimeout(() => {
+    projects.forEach((project) => {
+      if (filter === "*" || filter === project.dataset.project) {
+        project.classList.remove("invisible");
+      } else {
+        project.classList.add("invisible");
+      }
+    });
+    projectContainer.classList.remove("anime-out");
+  }, 300);
+});
