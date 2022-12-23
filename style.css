@@ -309,6 +309,7 @@ p {
   font-size: var(--font-regular);
   padding: 4px 40px;
   transition: all 0.3s;
+  position: relative;
 }
 .category__btn.active,
 .category__btn:hover {
@@ -326,9 +327,9 @@ p {
   text-align: center;
   line-height: 20px;
   color: white;
-  position: relative;
+  position: absolute;
   top: -10px;
-  left: 4px;
+  right: 14px;
   opacity: 0;
   transition: all 0.2s ease-out;
 }
@@ -476,6 +477,21 @@ p {
 
 /* 768px 미만 */
 @media screen and (max-width: 768px) {
+  :root {
+    /* Font size */
+    --font-large: 34px;
+    --font-medium: 24px;
+    --font-regular: 16px;
+    --font-small: 14px;
+    --font-micro: 12px;
+  }
+
+  .section {
+    /* 모바일은 보통 패딩 16px */
+    padding: 16px;
+    padding-top: 40px;
+  }
+
   .navbar__toggle_btn {
     display: block;
   }
@@ -483,6 +499,7 @@ p {
     flex-direction: column;
     align-items: flex-start;
     background-color: var(--color-blue);
+    padding: 0 10px;
   }
   .navbar__menu {
     flex-direction: column;
@@ -500,6 +517,10 @@ p {
 
   .about__majors {
     flex-direction: column;
+    margin: 10px 0;
+  }
+  .major {
+    margin: 20px 0;
   }
 
   .skillset {
@@ -510,8 +531,39 @@ p {
     flex-grow: 1;
   }
 
+  .category__btn {
+    padding: 4px 26px;
+    margin: 2px 0;
+  }
+  .category__count {
+    right: 4px;
+  }
+  .testimonial {
+    flex-direction: column;
+  }
+  /* 아바타와 글 순서 변경 */
+  /* .testimonial:nth-child(4) {
+    flex-direction: column-reverse;
+  } */
+  .testimonial__speech-bubble {
+    order: 1;
+  }
   .testimonial__avatar {
     width: 100px;
     height: 100px;
+  }
+  .testimonial__avatar:nth-child(odd),
+  .testimonial__avatar:nth-child(even) {
+    margin: 0;
+  }
+
+  .toTopArrow {
+    right: 10px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    line-height: 36px;
+    font-size: 25px;
+    text-align: center;
   }
 }
