@@ -22,7 +22,15 @@ navbarMenu.addEventListener("click", (event) => {
   const link = event.target.dataset.link;
   if (link) {
     scrollIntoView(link);
+    // 작은 화면에서 메뉴 클릭하면 네비 메뉴사라지도록
+    navbarMenu.classList.remove("active");
   }
+});
+
+// 네비바의 토글 버튼 누르면 메뉴리스트 나오도록
+const navToggleBtn = document.querySelector(".navbar__toggle_btn");
+navToggleBtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("active");
 });
 
 // Home의 Contact Me 버튼 시 Contact로 이동
@@ -62,7 +70,7 @@ workBtnContainer.addEventListener("click", (e) => {
   if (filter === undefined) {
     return;
   }
-
+  // 프로젝트 버튼 클릭시 active 클래스 추가 제거
   const active = document.querySelector(".category__btn.active");
   active.classList.remove("active");
   const target = e.target.nodeName == "BUTTON" ? e.target : e.target.parentNode;
@@ -80,5 +88,3 @@ workBtnContainer.addEventListener("click", (e) => {
     projectContainer.classList.remove("anime-out");
   }, 200);
 });
-
-// 프로젝트 버튼 클릭시 active 클래스 추가 제거
