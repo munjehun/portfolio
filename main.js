@@ -59,6 +59,39 @@ toTopArrow.addEventListener("click", () => {
   scrollIntoView("#home");
 });
 
+// 스크롤시 네비바의 해당 섹션에 active 되도록
+const navbarMenuList = document.querySelectorAll("navbar__menu__item");
+// document.addEventListener("scroll", () => {
+//   console.log(window.scrollY);
+//   if (window.scrollY < 746) {
+//     // data-link가 #home인 태그에 class에 active 추가
+//     document.querySelector('[data-link="#home"]').classList.add("active");
+//   } else if (746 < window.scrollY < 1591) {
+//     document.querySelector('[data-link="#home"]').classList.remove("active");
+//     document.querySelector('[data-link="#about"]').classList.add("active");
+//   } else if (1591 < window.scrollY < 2314) {
+//     document.querySelector('[data-link="#about"]').classList.remove("active");
+//     document.querySelector('[data-link="#skills"]').classList.add("active");
+//   } else if (2314 < window.scrollY < 2816) {
+//     document.querySelector('[data-link="#skills"]').classList.remove("active");
+//     document.querySelector('[data-link="#work"]').classList.add("active");
+//   } else if (2816 < window.scrollY < 3398) {
+//     document.querySelector('[data-link="#work"]').classList.remove("active");
+//     document
+//       .querySelector('[data-link="#testimonials"]')
+//       .classList.add("active");
+//   } else {
+//     document
+//       .querySelector('[data-link="#testimonials"]')
+//       .classList.remove("active");
+//     document.querySelector('[data-link="#contact"]').classList.add("active");
+//   }
+// });
+// 👆 코드가 실행 될 때는 다른 코드가 실행되지 않는다.
+// 싱글 스레드이기 때문에! ❌❌ 좋지 않은 코드
+// 페이지 위에서 레이아웃이 발생하게 된다 ❌❌ 좋지 않은 코드
+// 이벤트로 등록하는 콜백함수는 최대한 가벼워야 한다!
+
 // 프로젝트 버튼 클릭시 해당 프로젝트만 나오도록
 const workBtnContainer = document.querySelector(".work__categories");
 const workBtns = document.querySelectorAll(".category__btn");

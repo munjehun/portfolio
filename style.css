@@ -126,6 +126,10 @@ p {
 .navbar__menu__item:hover {
   background-color: #338eca;
 }
+.navbar__menu__item.active {
+  background-color: #338eca;
+}
+
 .navbar__toggle_btn {
   /* display: none; */
   position: absolute;
