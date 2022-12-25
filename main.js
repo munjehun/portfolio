@@ -19,11 +19,13 @@ function scrollIntoView(selector) {
 // 네비바 메뉴 선택시 이동
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
+  const target = event.target;
   const link = event.target.dataset.link;
   if (link) {
-    scrollIntoView(link);
     // 작은 화면에서 메뉴 클릭하면 네비 메뉴사라지도록
     navbarMenu.classList.remove("active");
+    scrollIntoView(link);
+    selectNavItem(target);
   }
 });
 
@@ -60,7 +62,6 @@ toTopArrow.addEventListener("click", () => {
 });
 
 // 스크롤시 네비바의 해당 섹션에 active 되도록
-const navbarMenuList = document.querySelectorAll("navbar__menu__item");
 // document.addEventListener("scroll", () => {
 //   console.log(window.scrollY);
 //   if (window.scrollY < 746) {
@@ -91,6 +92,68 @@ const navbarMenuList = document.querySelectorAll("navbar__menu__item");
 // 싱글 스레드이기 때문에! ❌❌ 좋지 않은 코드
 // 페이지 위에서 레이아웃이 발생하게 된다 ❌❌ 좋지 않은 코드
 // 이벤트로 등록하는 콜백함수는 최대한 가벼워야 한다!
+
+// 1. 모든 섹션 요소들과 메뉴 아이템들을 가지고 온다.
+const sectionId = [
+  "#home",
+  "#about",
+  "#skills",
+  "#work",
+  "#testimonials",
+  "#contact",
+];
+const sections = sectionId.map((id) => document.querySelector(id));
+const navItems = sectionId.map((id) =>
+  document.querySelector(`[data-link="${id}"]`)
+);
+
+// 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
+let selectedNavIndex;
+let selectedNavItem = navItems[0];
+function selectNavItem(selected) {
+  selectedNavItem.classList.remove("active");
+  selectedNavItem = selected;
+  selectedNavItem.classList.add("active");
+}
+
+const observerOptions = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
+};
+
+const observerCallback = (entries, observer) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting && entry.intersectionRatio > 0) {
+      const index = sectionId.indexOf(`#${entry.target.id}`);
+      // 스크롤링이 아래로 되어서 페이지가 올라옴
+      if (entry.boundingClientRect.y < 0) {
+        selectedNavIndex = index + 1;
+      } else {
+        //스크롤링이 위로 되어서 페이지가 내려감
+        selectedNavIndex = index - 1;
+      }
+    }
+  });
+};
+
+const observer = new IntersectionObserver(observerCallback, observerOptions);
+sections.forEach((section) => observer.observe(section));
+
+// 3. 보여지는 섹션에 해당하는 메뉴 아이템을 활성화 시킨다.
+window.addEventListener("wheel", () => {
+  if (window.scrollY === 0) {
+    //스크롤이 제일 위에 있을 때,
+    selectedNavIndex = 0;
+  } else if (
+    //스크롤이 제일 아래에 있을 때
+    Math.round(window.scrollY + window.innerHeight) >=
+    document.body.clientHeight
+  ) {
+    selectedNavIndex = navItems.length - 1;
+  } // 스크롤이 중간일 때
+  selectNavItem(navItems[selectedNavIndex]);
+});
 
 // 프로젝트 버튼 클릭시 해당 프로젝트만 나오도록
 const workBtnContainer = document.querySelector(".work__categories");
