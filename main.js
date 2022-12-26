@@ -12,10 +12,6 @@ document.addEventListener("scroll", () => {
   }
 });
 
-function scrollIntoView(selector) {
-  const contact = document.querySelector(selector);
-  contact.scrollIntoView({ behavior: "smooth" });
-}
 // 네비바 메뉴 선택시 이동
 const navbarMenu = document.querySelector(".navbar__menu");
 navbarMenu.addEventListener("click", (event) => {
@@ -25,6 +21,7 @@ navbarMenu.addEventListener("click", (event) => {
     // 작은 화면에서 메뉴 클릭하면 네비 메뉴사라지도록
     navbarMenu.classList.remove("active");
     scrollIntoView(link);
+    // 수동적으로 NavItem 선택
     selectNavItem(target);
   }
 });
@@ -109,6 +106,7 @@ const navItems = sectionId.map((id) =>
 
 // 2. IntersectionObserver를 이용해서 모든 섹션들을 관찰한다.
 let selectedNavIndex;
+// 첫 로딩때는 home으로 설정하기 위해
 let selectedNavItem = navItems[0];
 function selectNavItem(selected) {
   selectedNavItem.classList.remove("active");
@@ -116,6 +114,11 @@ function selectNavItem(selected) {
   selectedNavItem.classList.add("active");
 }
 
+function scrollIntoView(selector) {
+  const contact = document.querySelector(selector);
+  contact.scrollIntoView({ behavior: "smooth" });
+  selectNavItem(navItems[sectionId.indexOf(selector)]);
+}
 const observerOptions = {
   root: null,
   rootMargin: "0px",
@@ -124,13 +127,14 @@ const observerOptions = {
 
 const observerCallback = (entries, observer) => {
   entries.forEach((entry) => {
+    // 화면에서 나갈 때 && 현재 나오고 있는 페이지 일 때
     if (!entry.isIntersecting && entry.intersectionRatio > 0) {
       const index = sectionId.indexOf(`#${entry.target.id}`);
-      // 스크롤링이 아래로 되어서 페이지가 올라옴
       if (entry.boundingClientRect.y < 0) {
+        // 스크롤링이 아래로 되어서 페이지가 올라갈 때
         selectedNavIndex = index + 1;
       } else {
-        //스크롤링이 위로 되어서 페이지가 내려감
+        //스크롤링이 위로 되어서 페이지가 내려갈 때
         selectedNavIndex = index - 1;
       }
     }
